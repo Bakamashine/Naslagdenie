@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cakes', function (Blueprint $table) {
+        Schema::create('desert_galleries', function (Blueprint $table) {
             $table->id();
             $table->string("image");
-            // $table->timestamps();
         });
     }
 
@@ -23,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cakes');
+        Schema::dropIfExists('desert_galleries');
     }
 };

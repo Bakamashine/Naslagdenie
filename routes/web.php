@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\CakeController;
 use App\Http\Controllers\CardController;
+use App\Http\Controllers\DesertGalleryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\MainController;
 use App\Models\Card;
+use App\Models\DesertGallery;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 
@@ -23,11 +25,18 @@ Route::middleware("auth")
             ->group(function () {
                 Route::view("/admin", "admin.index")->name("admin");
 
+                Route::controller(DesertGalleryController::class)
+                ->group(function () {
+                    Route::get("/desert/create", 'create')->name("desert.create");
+                    Route::post("/desert/store", 'store')->name("desert.store");
+                    Route::delete("/desert/{desertGallery}/delete", 'delete')->name("desert.delete");
+                });
+
                 Route::controller(CakeController::class)
                 ->group(function () {
                     Route::get("/cake/create", 'create')->name("cake.create");
                     Route::post("/cate/store", 'store')->name("cake.store");
-                    Route::post("/cake/{cake}/delete", 'delete')->name("cake.delete");
+                    Route::delete("/cake/{cake}/delete", 'delete')->name("cake.delete");
                 });
 
                 Route::controller(EmployeeController::class)
@@ -54,6 +63,7 @@ Route::middleware("auth")
 
 Route::view("/contacts", "contacts")->name("contacts");
 Route::get("/cake", [CakeController::class, "index"])->name("cake");
+Route::get("/desert", [DesertGalleryController::class, 'index'])->name("desert");
 
 Route::get("/about_us", function () {
     $data = Employee::limit(4)->get();

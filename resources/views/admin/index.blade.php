@@ -8,7 +8,7 @@
     <a href="{{ route('card.create') }}">Создание карточек</a>
     <a href="{{ route('employee.create') }}">Создание сотрудников</a>
     <a href="{{ route('cake.create') }}">Торты на заказ</a>
-    <a href="#">Пироженные и десерты</a>
+    <a href="{{ route('desert.create')}}">Пироженные и десерты</a>
     <a href="#">Подарочные наборы</a>
     <a href="#">Сезонные предложения</a>
     <a href="#">Статьи и рецепты</a>
