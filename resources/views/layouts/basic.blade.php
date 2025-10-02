@@ -62,7 +62,7 @@
                 <li><b><a class="a-head" href="{{ route('about_us') }}">О нас</a></b></li>
                 <li><b><a class="a-head" href="{{ route('cake') }}">Торты на заказ</a></b></li>
                 <li><b><a class="a-head" href="{{ route('desert') }}">Пирожные и десерты</a></b></li>
-                <li><b><a class="a-head" href="#">Подарочные наборы</a></b></li>
+                <li><b><a class="a-head" href="{{ route('present') }}">Подарочные наборы</a></b></li>
                 <li><b><a class="a-head" href="#">Сезонные предложения</a></b></li>
                 <li><b><a class="a-head" href="#">Статьи и рецепты</a></b></li>
                 <li><b><a class="a-head" href="{{ route('contacts') }}">Контакты</a></b></li>

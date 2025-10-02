@@ -6,6 +6,7 @@ use App\Http\Controllers\DesertGalleryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\PresentGalleryController;
 use App\Models\Card;
 use App\Models\DesertGallery;
 use App\Models\Employee;
@@ -24,6 +25,13 @@ Route::middleware("auth")
         Route::middleware("admin")
             ->group(function () {
                 Route::view("/admin", "admin.index")->name("admin");
+
+                Route::controller(PresentGalleryController::class)
+                ->group(function () {
+                    Route::get("/present/create", "create")->name("present.create");
+                    Route::post("/present/store", 'store')->name("present.store");
+                    Route::delete("/present/{presentGallery}/delete", 'delete')->name("present.delete");
+                });
 
                 Route::controller(DesertGalleryController::class)
                 ->group(function () {
@@ -64,6 +72,7 @@ Route::middleware("auth")
 Route::view("/contacts", "contacts")->name("contacts");
 Route::get("/cake", [CakeController::class, "index"])->name("cake");
 Route::get("/desert", [DesertGalleryController::class, 'index'])->name("desert");
+Route::get("/present", [PresentGalleryController::class, 'index'])->name("present");
 
 Route::get("/about_us", function () {
     $data = Employee::limit(4)->get();
