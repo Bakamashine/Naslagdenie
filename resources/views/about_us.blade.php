@@ -40,11 +40,21 @@
         </b>: Мы предлагаем доставку по городу.</p>
     </div>
     <h2 class="text-center">Мы - команда высококлассных кондитеров, которые стремятся создавать только лучшие сладости.</h2>
-        <a href="{{ route('feedback') }}" class="button">Отзывы</a>
-    <h3>Наша команда:</h3>
-    {{-- <div class="team-category-container">
-        <?php include 'project/team_conditers.php'; ?>
-    </div> --}}
+    <a href="{{ route('feedback') }}" class="button">Отзывы</a>
+    @if (count($data) > 0)
+        <h3>Наша команда:</h3>
+        <div class='team-category-container'>
+            @foreach ($data as $value)
+                <div class="team-category-card">
+                    <img src="{{ $value->image }}" alt="{{ $value->image }}" />
+                    <p>{{ $value->fio }}</p>
+                    <div class="team-description">
+                        <p>{{ $value->description }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    @endif
     <h3>Видео о нашем магазине:</h3>
     <div
         style="max-width: 800px; margin: auto; border-radius: 12px; overflow: hidden; position: relative; padding-bottom: 37.5%; height: 0;">
