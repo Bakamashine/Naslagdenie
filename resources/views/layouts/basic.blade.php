@@ -60,7 +60,7 @@
             <ul class="list-unstyled">
                 <li><b><a class="a-head" href="{{ route('main') }}">Главная</a></b></li>
                 <li><b><a class="a-head" href="{{ route('about_us') }}">О нас</a></b></li>
-                <li><b><a class="a-head" href="#">Торты на заказ</a></b></li>
+                <li><b><a class="a-head" href="{{ route('cake') }}">Торты на заказ</a></b></li>
                 <li><b><a class="a-head" href="#">Пирожные и десерты</a></b></li>
                 <li><b><a class="a-head" href="#">Подарочные наборы</a></b></li>
                 <li><b><a class="a-head" href="#">Сезонные предложения</a></b></li>

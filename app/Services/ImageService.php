@@ -13,7 +13,7 @@ class ImageService
      * @param \Illuminate\Http\Request $request
      * @return string
      */
-    public static function UploadMoreImage(Request $request, string $key, string $path)
+    public static function UploadMoreImage(Request $request, string $key, string $path): array
     {
         $urls = [];
         if ($request->hasFile($key)) {

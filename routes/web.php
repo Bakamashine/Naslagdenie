@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CakeController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FeedbackController;
@@ -21,6 +22,13 @@ Route::middleware("auth")
         Route::middleware("admin")
             ->group(function () {
                 Route::view("/admin", "admin.index")->name("admin");
+
+                Route::controller(CakeController::class)
+                ->group(function () {
+                    Route::get("/cake/create", 'create')->name("cake.create");
+                    Route::post("/cate/store", 'store')->name("cake.store");
+                    Route::post("/cake/{cake}/delete", 'delete')->name("cake.delete");
+                });
 
                 Route::controller(EmployeeController::class)
                     ->group(function () {
@@ -45,7 +53,8 @@ Route::middleware("auth")
     });
 
 Route::view("/contacts", "contacts")->name("contacts");
-// Route::view("/about_us", "about_us")->name("about_us");
+Route::get("/cake", [CakeController::class, "index"])->name("cake");
+
 Route::get("/about_us", function () {
     $data = Employee::limit(4)->get();
     return view("about_us", ['data' => $data]);
