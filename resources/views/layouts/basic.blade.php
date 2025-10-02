@@ -42,13 +42,13 @@
 <body>
     <header>
         <div class="head-logo">
-            <a href="index.php"><img src="img/logo.png" alt="Логотип"></a>
+            <a href="{{ route('main') }}"><img src="/img/logo.png" alt="Логотип"></a>
         </div>
         <div class="head-menu">
             <div class="search-container">
                 <form action="search.php" method="GET" class="search-form">
                     <input type="text" name="query" class="search-input" placeholder="Поиск" required>
-                    <button class="search-button" type="submit"><img src="img/search.svg" alt="Поиск"></button>
+                    <button class="search-button" type="submit"><img src="/img/search.svg" alt="Поиск"></button>
                 </form>
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="side-menu">
             <button class="close-btn" id="close-btn">✖</button>
             <ul class="list-unstyled">
-                <li><b><a class="a-head" href="#">Главная</a></b></li>
+                <li><b><a class="a-head" href="{{ route('main') }}">Главная</a></b></li>
                 <li><b><a class="a-head" href="{{ route('about_us') }}">О нас</a></b></li>
                 <li><b><a class="a-head" href="#">Торты на заказ</a></b></li>
                 <li><b><a class="a-head" href="#">Пирожные и десерты</a></b></li>
@@ -71,12 +71,12 @@
                 <li><b><a class="a-head" href="#">Заказы</a></b></li>
                 <li class="cart-container" id="cart-container">
                     <a class="a-head" href="cart.php">
-                        <img src="img/cart.svg" alt="Корзина" class="cart-icon" id="cart-icon">
+                        <img src="/img/cart.svg" alt="Корзина" class="cart-icon" id="cart-icon">
                     </a>
                     <span class="cart-count" id="cart-count"></span>
                 </li>
                 <li class="social-icons" id="profile-link">
-                    <img src="img/profile.svg" alt="">
+                    <img src="/img/profile.svg" alt="">
                     <a class="a-head" href="profile.php">Профиль</a>
                 </li>
                 @auth
@@ -103,20 +103,20 @@
     @include('components/RegisterModalWindow') --}}
     <!-- Скрипты -->
 
-<script>
-    // Скрытая форма для выхода
-    document.addEventListener('DOMContentLoaded', function() {
-        const logoutLink = document.getElementById('logout');
-        const logoutForm = document.getElementById('logout_form');
+    <script>
+        // Скрытая форма для выхода
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoutLink = document.getElementById('logout');
+            const logoutForm = document.getElementById('logout_form');
 
-        if (logoutLink && logoutForm) {
-            logoutLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                logoutForm.submit();
-            });
-        }
-    });
-</script>
+            if (logoutLink && logoutForm) {
+                logoutLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    logoutForm.submit();
+                });
+            }
+        });
+    </script>
     <script>
         // Скрипт для шторки
         const side_menu = document.querySelector(".side-menu");
@@ -173,7 +173,7 @@
         });
     </script>
     <!-- Bootstrap JS -->
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

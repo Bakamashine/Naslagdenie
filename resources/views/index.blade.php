@@ -15,7 +15,8 @@
                     <img src="{{ $value->image }}" />
                     <h2>{{ $value->name }}</h2>
                     <h3>{{ $value->price }}</h3>
-                    <a href="{{ route('card.show', ['id' => $value->id]) }}">Подробнее</a>
+                    <a href="{{ route('card.show', ['card' => $value->id]) }}">Подробнее</a>
+                </div>
             @endforeach
         @endif
     </div>
