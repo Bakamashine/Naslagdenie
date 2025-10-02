@@ -59,13 +59,13 @@
             <button class="close-btn" id="close-btn">✖</button>
             <ul class="list-unstyled">
                 <li><b><a class="a-head" href="#">Главная</a></b></li>
-                <li><b><a class="a-head" href="#">О нас</a></b></li>
+                <li><b><a class="a-head" href="{{ route('about_us') }}">О нас</a></b></li>
                 <li><b><a class="a-head" href="#">Торты на заказ</a></b></li>
                 <li><b><a class="a-head" href="#">Пирожные и десерты</a></b></li>
                 <li><b><a class="a-head" href="#">Подарочные наборы</a></b></li>
                 <li><b><a class="a-head" href="#">Сезонные предложения</a></b></li>
                 <li><b><a class="a-head" href="#">Статьи и рецепты</a></b></li>
-                <li><b><a class="a-head" href="#">Контакты</a></b></li>
+                <li><b><a class="a-head" href="{{ route('contacts') }}">Контакты</a></b></li>
                 <li><b><a class="a-head" href="#">Корзина</a></b></li>
 
                 <li><b><a class="a-head" href="#">Заказы</a></b></li>
